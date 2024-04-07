@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Note Form</title>
+    
+</head>
+<body>
+    <div class="form-container">
+        <h2>Add Note</h2>
+        <form id="addNoteForm">
+            <div>
+                <label>Title:</label>
+                <input type="text" id="title" name="title" required>
+                <div id="titleError" class="error-message"></div>
+            </div>
+            <div>
+                <label>Module:</label>
+                <input type="text" id="module" name="module" required>
+                <div id="moduleError" class="error-message"></div>
+            </div>
+            <div>
+                <label>Keywords:</label>
+                <input type="text" id="keywords" name="keywords" required>
+                <div id="keywordsError" class="error-message"></div>
+            </div>
+            <div>
+                <label>Description:</label>
+                <textarea id="description" name="description" required></textarea>
+                <div id="descriptionError" class="error-message"></div>
+            </div>
+            <div>
+                <label>Picture:</label>
+                <input type="file" id="picture" accept=".jpg,.jpeg,.png,.svg,.webp,.tiff" required>
+            </div>
+            <button type="submit">Ajouter Note</button>
+        </form>
+    </div>
+    <script>
+        const form = document.getElementById('addNoteForm');
+        const titleInput = document.getElementById('title');
+        const moduleInput = document.getElementById('module');
+        const keywordsInput = document.getElementById('keywords');
+        const descriptionInput = document.getElementById('description');
+        const titleError = document.getElementById('titleError');
+        const moduleError = document.getElementById('moduleError');
+        const keywordsError = document.getElementById('keywordsError');
+        const descriptionError = document.getElementById('descriptionError');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const titlePattern = /^[a-zA-Z][a-zA-Z\s]*$/;
+            if (!titlePattern.test(titleInput.value)) {
+                titleError.textContent = "Titre invalide";
+                return;
+            } else {
+                titleError.textContent = '';
+            }
+
+            const modulePattern = /^[a-zA-Z][a-zA-Z\s]*$/;
+            if (!modulePattern.test(moduleInput.value)) {
+                moduleError.textContent = "Module invalide";
+                return;
+            } else {
+                moduleError.textContent = '';
+            }
+
+            const descriptionPattern = /^[a-zA-Z][a-zA-Z\s]*$/;
+            if (!descriptionPattern.test(descriptionInput.value)) {
+                descriptionError.textContent = "Description invalide";
+                return;
+            } else {
+                descriptionError.textContent = '';
+            }
+
+            const keywordsPattern = /^[a-zA-Z0-9\s]+(?:;[a-zA-Z0-9\s]+)*$/;
+            if (!keywordsPattern.test(keywordsInput.value)) {
+                keywordsError.textContent = "Veuillez entrer les mots-clés séparés par des points-virgules.";
+                return;
+            } else {
+                keywordsError.textContent = '';
+            }
+
+            // You can send noteData to your backend for further processing
+            const keywordsArray = keywordsInput.value.split(';').map(keyword => keyword.trim());
+            console.log({
+                title: titleInput.value,
+                module: moduleInput.value,
+                keywords: keywordsInput.value,
+                description: descriptionInput.value,
+                picture: document.getElementById('picture').files[0]
+            });
+
+            // Reset form after submission
+            titleInput.value = '';
+            moduleInput.value = '';
+            keywordsInput.value = '';
+            descriptionInput.value = '';
+            document.getElementById('picture').value = null;
+        });
+    </script>
+</body>
+</html>
