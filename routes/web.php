@@ -14,3 +14,4 @@ Route::get('/', function () {
 Route::get('/notes', [NoteController::class, 'displayNotes'])->name('notes.display-note');
 Route::get('/notes/create', [NoteController::class, 'addNote'])->name('notes.add');
 Route::post('/notes', [NoteController::class, 'storeNote'])->name('notes.store');
+Route::get('/notes/{id}', [NoteController::class, 'show'])->name('note.detail');

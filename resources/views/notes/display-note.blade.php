@@ -4,214 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Display Notes</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        .note-rating i {
-            cursor: pointer;
-        }
-        .star-filled {
-            color: gold; /* Change to the color you want the filled star to be */
-        }
-        .user-info{
-            margin-top:10px;
-            margin-left:16px;
-            
-        }
-        .user-info .fa-solid.fa-user {
-          
-            margin-top:22px;
-            vertical-align: top;
-        }
-        .user-info .fa-solid fa-user{
-            margin-bottom:2px;
-        }
-        .user-info p{
-        display: inline-block;
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
     
-        }
-        .user-info i{ 
-            margin-right:3px;
-        }
-        .user-info .user-name{
-            
-            font-size:20px;
-            margin-right:3px;
-        }
-        
-        .note-actions{
-            margin-right:16px;
-        }
-       .note-actions i{
-            margin-left:8px;
-        }
-
-        .note-published-at{
-            color:#ccc;
-            font-size:12px;
-            font-weight: bold;
-        }
-        .note-container{
-            display: flex;
-            justify-content: space-between; /* Distributes child elements evenly along the main axis */
-            align-items: center;
-            margin-top:-7px;
-            
-        }
-        .note{
-            height:400px;
-            width:520px;
-        }
-        .note-rating{
-            /* margin-right:-350px; */
-        }
-        .note-details{
-            margin-top:20px;
-            margin-bottom:10px;
-            margin-left:30px;
-        }
-        .note-title{
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            font-size: 20px;
-            
-        }
-        .note-details .note-title{
-           
-            margin-top:-10px;
-        }
-        hr{
-            width:350px;
-            background-color:#DCDCDC;
-            height:1px;
-            border:none;
-        }
-        .note:nth-child(3n+1) {
-            background-color: #91aaff;
-        }
-        .note:nth-child(3n+2) {
-            background-color: #ff80c5;
-        }
-        .note:nth-child(3n+3) {
-            background-color: #7afbff;
-        }
-        #notes-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            
-        }
-        .add-note-btn {
-            display: flex; /* Use flexbox */
-            align-items: center; /* Center vertically */
-            justify-content: center; /* Center horizontally */
-            width: 40px;
-            height: 40px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 24px;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            cursor: pointer;
-            text-decoration: none;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .more-details{
-            display:flex;
-            justify-content: space-between;
-            margin-left: 16px;
-            margin-right: 16px;
-            margin-top: 140px;
-        }
-        .more-details i{
-            font-size: 25px;
-        }
-        .image-container{
-           
-        }
-        .see-more-button {
-    
-         
-            color: black; /* Change text color to black */
-            border: 2px solid black; /* Add border */
-            border-radius: 20px; /* Add border radius */
-            display: inline-flex; /* Use flexbox to ensure inline alignment */
-            align-items: center; /* Align items vertically */
-        }
-
-        .see-more-button i {
-            margin-left: 5px; /* Add some space between text and arrow */
-        }
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-            background-color: #fff;
-            border-bottom: 3px solid;
-            border-image: linear-gradient(to right, #91aaff, #ff80c5, #7afbff);
-            border-image-slice: 1;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            margin-left: 0px;
-            height:100px;
-        }
-        header .logo img{
-            height:100px;
-            width:140px;
-        }
-        
-
-        .logo {
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        .icons {
-            display: flex;
-        }
-
-        .user-icon,
-        .notification-icon {
-            margin-left: 20px;
-            cursor: pointer;
-        }
-
-        .content {
-            padding-top: 70px; /* Height of the header + 10px */
-            height: 2000px; /* Just for demonstration */
-        }
-        
-        .note-details .image-container img{
-            height:500px;
-            width:150px;
-        }
-        .image-container{
-            border:bold;
-        }
-    
-
-    </style>
 </head>
 <body>
     <header id="header">
-        <div class="logo-container"><img class="logo"src="{{ asset('images/notes/LOGO.jpeg') }}"></div>
+        {{-- <div class="logo-container"><img class="logo"src="{{ asset('images/notes/Design sans titre (56).png') }}"></div> --}}
         <div class="icons">
             <div class="user-icon"><i class="fas fa-user"></i></div>
             <div class="notification-icon"><i class="fas fa-bell"></i></div>
         </div>
     </header>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search notes...">
+        <i class="fas fa-search"></i>
+      </div>
     <div class="container">
     <div class="content">
         <div id="notes-container">
             @foreach($notes as $note)
-                <div class="note">
+            <a href="{{ route('note.detail', ['id' => $note->id]) }}" class="note-link">
+                <div class="note" data-topic="{{ $note->topic->name }}">
                     <div class="note-container">
                         
                          <div class="user-info">
@@ -235,25 +50,31 @@
                     </div>
                     <hr/>
                     <div class="note-details">
-                        <h6 class="note-title">{{ $note->title }}</h3>
-                        {{-- <p class="note-topic-id">Topic: {{ $note->topic->name }}</p> --}}
+                        <h3 class="note-title">{{ $note->title }}</h3>
+                        <p class="note-topic-id">Topic: {{ $note->topic->name }}</p>
                         {{-- <p class="note-description">{{ $note->description }}</p> --}}
                         {{-- <p class="note-keywords">Keywords: {{ $note->keywords }}</p> --}}
-                        <div class="image-container">
-                            <img src="{{ asset('images/notes/1712268034.jpg') }}"/>
-                            {{-- <img src="{{ asset('C:\public\storage\notes' . $note->photo) }}" alt="Image de la note:" class="img-fluid"> --}}
-                        </div>
+                        
                        
                     </div>
+                    <div class="image-container">
+                        <img src="{{ asset('images/notes/1712283000.jpg') }}"/>
+                        {{-- <img src="{{ asset('C:\public\storage\notes' . $note->photo) }}" alt="Image de la note:" class="img-fluid"> --}}
+                    </div>
                     <div class="more-details">
-                        <i class="fa-regular fa-comment-dots " ></i>
-                        {{-- <button>See More</button> --}}
+                        <i class="fa-regular fa-comment-dots " data-target="comment-section-{{ $note->id }}" id="comment-icon-{{ $note->id }}"></i>
                         <button class="see-more-button">
                             See More<i class="fas fa-arrow-right"></i>
-                        </button>
+                        </button> 
+                    </div>
+                    <div class="comment-section" id="comment-section-{{ $note->id }}" style="display: none;">
+                        <!-- Comment section content goes here -->
+                        <textarea placeholder="Add a comment"></textarea>
+                        <button>Submit</button>
                     </div>
                     
                 </div>
+            </a>
             @endforeach
         </div>
     </div>
@@ -264,20 +85,102 @@
     
     
     <script>
-        // JavaScript for rating functionality
-        document.querySelectorAll('.note-rating i').forEach(star => {
-            star.addEventListener('click', () => {
-                const rating = parseInt(star.getAttribute('data-rating'));
-                
-                // Toggle filled class for the clicked star
-                star.classList.toggle('star-filled');
-            });
+        
+
+       // JavaScript for rating functionality
+       document.querySelectorAll('.note-rating i').forEach(star => {
+       star.addEventListener('click', () => {
+       const rating = parseInt(star.getAttribute('data-rating'));
+
+       // Remove the 'star-filled' class from all stars
+       document.querySelectorAll('.note-rating i').forEach(star => {
+       star.classList.remove('star-filled');
+       });
+
+       // Add the 'star-filled' class for the clicked star and its following siblings
+       for (let i = rating; i > 0; i--) {
+       document.querySelector(`.note-rating i[data-rating="${i}"]`).classList.add('star-filled');
+       }
+
+       // If the clicked star is the first star, remove the 'star-filled' class if it has one
+       if (rating === 1) {
+       star.classList.toggle('star-filled');
+       }
+       });
+       });
+
+        // Prevent redirection when clicking on icons, rating, or user elements
+       document.querySelectorAll('.note-rating i, .note-actions i, .user-info i, .user-info .user-name').forEach(element => {
+       element.addEventListener('click', (event) => {
+       event.preventDefault(); // Prevent the default behavior
+       });
+       });
+
+        
+        // JavaScript for toggling the comment section
+        document.querySelectorAll('.fa-regular.fa-comment-dots').forEach(commentIcon => {
+        commentIcon.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent the default behavior of the click event
+            const commentSectionId = event.target.getAttribute('data-target');
+            const commentSection = document.getElementById(commentSectionId);
+            commentSection.style.display = (commentSection.style.display === 'none') ? 'block' : 'none';
         });
-        // JavaScript for redirecting to the add-note.blade.php page
-        document.getElementById('add-note-btn').addEventListener('click', (event) => {
-        event.preventDefault(); // Prevent the default link behavior
-        window.location.href = event.target.getAttribute('href'); // Change the location to the desired page
         });
+         // JavaScript for toggling the submit button
+        const textarea = document.querySelector('.comment-textarea');
+        const submitButton = document.querySelector('.comment-submit-button');
+        textarea.addEventListener('input', () => {
+        if (textarea.value.length > 0) {
+            submitButton.style.display = 'block';
+        } else {
+            submitButton.style.display = 'none';
+        }
+        });
+        // // JavaScript for search functionality
+        // const searchInput = document.getElementById('search-input');
+        // const notesContainer = document.getElementById('notes-container');
+
+        // searchInput.addEventListener('input', () => {
+        // const searchQuery = searchInput.value.toLowerCase();
+        // const noteElements = notesContainer.getElementsByClassName('note');
+
+        // for (let i = 0; i < noteElements.length; i++) {
+        //     const noteElement = noteElements[i];
+        //     const userNameElement = noteElement.querySelector('.user-name');
+        //     const userName = userNameElement.textContent.toLowerCase();
+
+        // if (userName.includes(searchQuery)) {
+        // noteElement.style.display = '';
+        // } else {
+        // noteElement.style.display = 'none';
+        // }
+        // }
+        // });
+
+       
+       
+     
+    // JavaScript for search functionality
+    const searchInput = document.getElementById('search-input');
+    const notesContainer = document.getElementById('notes-container');
+
+    searchInput.addEventListener('input', () => {
+        const searchQuery = searchInput.value.toLowerCase();
+        const noteElements = notesContainer.getElementsByClassName('note');
+
+        for (let i = 0; i < noteElements.length; i++) {
+            const noteElement = noteElements[i];
+            const titleElement = noteElement.querySelector('.note-title');
+            const title = titleElement.textContent.toLowerCase();
+
+            if (title.includes(searchQuery)) {
+                noteElement.style.display = ''; // Show the note if the title matches the search query
+            } else {
+                noteElement.style.display = 'none'; // Hide the note if the title does not match the search query
+            }
+        }
+    });
+
     </script>
 </body>
 </html>

@@ -27,6 +27,11 @@ public function displayNotes()
 
     return view('notes.display-note', compact('notes'));
 }
+public function show(Note $note)
+{
+    return view('notes.display-one-note', compact('note'));
+}
+
 
 public function storeNote(Request $request)
 {
