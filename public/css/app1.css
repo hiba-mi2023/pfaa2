@@ -1,0 +1,105 @@
+/*  NOTE DETAILED CSS*/
+.note-detailed{
+    height:700px;
+    width:1200px;
+    margin-left:auto;
+    margin-right:auto;
+    border-style: solid;
+    border-width: 1px;
+    border-color:#ccc;
+    border-radius: 15px;
+    }
+   .note-detailed hr{
+    width:900px;
+    background-color:#DCDCDC;
+    height:1px;
+    border:none;
+    }
+    .note-detailed .image-container {
+    height:400px;
+    width:1100px;
+    }
+    .note-detailed .image-container .note-rating{
+    
+    }
+    .note-detailed .note-details .note-title{
+    margin-top:4px;
+    }
+    .note-detailed .note-details .note-details-1 .note-topic-id{
+    margin-top:8px;
+    margin-left:25px;
+    }
+    .note-detailed .note-details .note-details-1 .note-discipline{
+    margin-top:8px;
+    margin-left:25px;
+    }
+    .note-detailed .another-details{
+    margin-left:50px;
+    }
+
+    .note-detailed .note-container .user-info .note-published-at{  
+    color:#ccc;
+    font-size:12px;
+    font-weight: bold;
+    margin-top:-20px;
+    margin-left:20px;
+    }
+
+    .comment-section {
+        margin-top: 20px;
+        overflow-y: auto; /* Add vertical scrollbar */
+        background-color: #f0f0f0; /* Change background color */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+        
+    }
+    
+    .comment {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        
+        
+    }
+    
+    .displayed-comment {
+    background-color: #e9f7ef; /* Change background color for displayed comments */
+    border-left: 5px solid #27ae60; /* Add a left border to highlight displayed comments */
+    padding-left: 10px; /* Add padding to the left of displayed comments */
+    }
+    /* Add margin between comment icon and text */
+.displayed-comment .fa-user {
+    margin-right: 5px; /* Adjust margin to your preference */
+    margin-bottom:3px;
+}
+
+    
+    .comment-user {
+        margin-right: 10px;
+    }
+    
+    .comment-user i {
+        color: #888;
+    }
+    
+    .comment input[type="text"] {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 15px;
+        flex: 1;
+        width:1070px;
+    }
+    
+    .comment-submit {
+        display: none; /* Initially hide the submit button */
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    
+    .comment-submit:hover {
+        background-color: #0056b3;
+    }

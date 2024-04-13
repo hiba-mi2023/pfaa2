@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 <body>
     <header id="header">
@@ -180,6 +181,20 @@
             }
         }
     });
+    // $(document).ready(function() {
+    //     $('.user-icon').on('click', function() {
+    //         window.location.href = "{{ route('user.page') }}";
+    //     });
+    // });
+    $(document).ready(function() {
+    $('.user-icon').on('click', function() {
+        console.log("User icon clicked"); // Add this line for testing
+        window.location.href = "{{ route('user.page') }}";
+    });
+});
+
+    
+
 
     </script>
 </body>
